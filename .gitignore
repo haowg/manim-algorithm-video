@@ -1,0 +1,73 @@
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Python
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.exe
+*.out
+build/
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt_
+
+# tmp
+*.DS_Store
+back
+
+# VSCode
+.vscode/
+
+# Emacs
+*~
+\#*\#
+.\#*
+auto-save-list
+tramp
+
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.vimrc
+vimrc
+*.swp
+.swp
+.swo
+*.viminfo
+
+# Neovim
+*.nvimlog
+
+# PyCharm
+.idea/
+*.iml
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+.runtime/
+*.nbconvert/
+*.js.map
+.jupyterlab/
+.jupyterlab-workspace/
+
+#
+partial_movie_files
+Tex
+texts
