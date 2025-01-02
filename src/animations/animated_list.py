@@ -13,7 +13,7 @@ class AnimatedList(list):
         self.vgroup.arrange(RIGHT, buff=0.5)
 
     def _sync_with_vgroup(self):
-        """用新的 VGroup 替换旧的 VGroup，以保持动画与列表同步。"""
+        """Replace old VGroup with new one to keep animations synced with list"""
         new_vgroup = VGroup(*[Text(str(item)) for item in self])
         new_vgroup.arrange(RIGHT, buff=0.5)
         self.scene.play(ReplacementTransform(self.vgroup, new_vgroup))
@@ -86,7 +86,7 @@ class AnimatedList(list):
         self.scene.wait(0.5)
 
     def compare_animation(self, i, j, relation):
-        """Highlight two elements to show they are being compared."""
+        """Highlight two elements being compared"""
         submobi = self.vgroup[i]
         submobj = self.vgroup[j]
         self.display_message(f"比较: {submobi.text} 和 {submobj.text}", [i, j])
@@ -97,11 +97,11 @@ class AnimatedList(list):
         new_message = Text(msg, font_size=font_size, color=color).next_to(self.vgroup, DOWN)
         self.scene.play(Transform(self.message, new_message))
 
-        # 重置颜色
+        # Reset color
         for submob in self.vgroup:
             submob.set_color(WHITE)
 
-        # 高亮指定的数字
+        # Highlight specified numbers
         if indices:
             for i in indices:
                 if 0 <= i < len(self.vgroup):

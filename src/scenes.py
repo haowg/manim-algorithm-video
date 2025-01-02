@@ -1,17 +1,16 @@
 from manim import *
-from ..animations.animated_list import AnimatedList
-from ..utils.visual_code import VisualCode
+from .animations.animated_list import AnimatedList
+from .utils.visual_code import VisualCode
 
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n - 1):
-        for j in range(n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr.swap(j, j + 1)
+class GenericSortScene(Scene):
+    def __init__(self, sort_func, *args, **kwargs):
+        self.sort_func = sort_func
+        # Add scene name based on sort function
+        self.name = sort_func.__name__
+        super().__init__(*args, **kwargs)
 
-class BubbleSortScene(Scene):
     def construct(self):
-        visual_code = VisualCode(bubble_sort, self)
+        visual_code = VisualCode(self.sort_func, self)
         code_mobject = visual_code.get_code()
         self.play(FadeIn(code_mobject))
 

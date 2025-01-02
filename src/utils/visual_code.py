@@ -7,6 +7,9 @@ class VisualCode:
         self.func = func
         self.scene = scene
         self.code_text, self.function_name = self.read_function_code(func)
+        
+        num_lines = len(self.code_text.split('\n'))
+        
         self.code_mobject = Code(
             code=self.code_text,
             language="Python",
@@ -15,7 +18,12 @@ class VisualCode:
             background="rectangle",
             line_spacing=0.5,
         )
-        self.code_mobject.to_edge(LEFT).shift(UP)
+
+        if num_lines > 18:
+            scale_factor = 18 / num_lines
+            self.code_mobject.scale(scale_factor)
+
+        self.code_mobject.to_edge(LEFT)
 
         self.highlight = SurroundingRectangle(
             self.code_mobject.code[0],
@@ -25,7 +33,6 @@ class VisualCode:
         )
 
     def read_function_code(self, func):
-        """读取函数源码以及函数名，并返回二者"""
         code_text = inspect.getsource(func)
         function_name = func.__name__
         return code_text, function_name
@@ -42,7 +49,6 @@ class VisualCode:
         self.execute_with_trace(self.func, (animated_list,), highlight_callback)
 
     def highlight_line(self, code_mobject, highlight, line_number, color=RED, run_time=0.3):
-        """Highlight current executing code line"""
         target = SurroundingRectangle(
             code_mobject.code[line_number],
             color=color,
@@ -53,7 +59,6 @@ class VisualCode:
         self.scene.play(Transform(highlight, target), run_time=run_time)
 
     def execute_with_trace(self, func, args, highlight_callback):
-        """Execute a function with tracing and highlight the current line."""
         def trace_calls(frame, event, arg):
             if event == 'line' and frame.f_code == func.__code__:
                 func_firstlineno = func.__code__.co_firstlineno
