@@ -1,5 +1,7 @@
 # manim-sorting-visualizations
 
+English | [简体中文](README_zh.md)
+
 ## Introduction
 
 Welcome to the **Manim Sorting Visualizations** project! This repository provides dynamic and interactive visualizations of various sorting algorithms using [Manim](https://www.manim.community/). Whether you're a student learning algorithms or a developer looking to understand sorting mechanisms better, this project offers clear and animated demonstrations of sorting processes.
