@@ -74,7 +74,7 @@ config.font = "Noto Sans CJK SC"
 
 ### Bubble Sort Visualization
 
-![Bubble Sort Animation](bubble_sort.gif)
+![Bubble Sort Animation](media/videos/1080p60/bubble_sort.gif)
 
 ## Enhanced Run Method
 
